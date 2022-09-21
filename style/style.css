@@ -1,0 +1,28 @@
+* {
+    background-color: rgb(192, 192, 192);
+}
+#mesaInfo{
+    display: none;
+}
+.delete{
+    display: none;
+}
+/*
+let numeroMesa = document.getElementById("numeroMesa").value
+    let nomeCliente = document.getElementById("nomeCliente").value
+    const res = document.getElementById('res')
+
+    if(numeroMesa === "" || nomeCliente == "" ){
+        //verificar se os campos estao preenchidos
+        if(numeroMesa === "" && nomeCliente != ""){
+            alert("Por favor digite o número da mesa")
+        }else if(nomeCliente === "" && numeroMesa != ""){
+            alert("Por favor digite o nome do cliente")
+        }else{
+            alert("Por favor digite o número da mesa e o nome do cliente")
+        }
+    }else{
+        
+
+       
+    }*/
