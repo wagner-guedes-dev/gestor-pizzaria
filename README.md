@@ -1,4 +1,4 @@
-# Gerenciador-Sistemas-Gastronomicos
- Gerenciador Sistemas Gastronômicos
+# Gestão-Pizzaria
+ Gerenciador de Pizzaria
  <br>
-Link do Gerenciador Sistemas Gastronômicos: https://portifoliowagnerguedes.netlify.app/
+Link do Gerenciador Sistemas Gastronômicos: https://gestaopizzaria.netlify.app/
