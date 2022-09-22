@@ -1,5 +1,54 @@
+var addpedido = document.getElementById('addpedido')
+
+addpedido.addEventListener('click', botaomais)
+
+function botaomais(){
+    const menucliente = document.getElementById('menucliente')
+    menucliente.classList.toggle('ativar')
+    addpedido.classList.toggle('delete')
+    console.log('funcionando')
+}
+
+var cancelar = document.getElementById('cancelar')
+
+cancelar.addEventListener('click', cancelarcriacaomesa)
+
+function cancelarcriacaomesa(){
+    const menucliente = document.getElementById('menucliente')
+    menucliente.classList.toggle('ativar')
+    addpedido.classList.toggle('delete')
+}
+
+var buttonadicionarmesa = document.getElementById('buttonadicionarmesa')
+
+buttonadicionarmesa.addEventListener('click', addmesa )
+
+function addmesa(){
+    const numbermesa = document.getElementById('numbermesa').value
+    const namemesa = document.getElementById('namemesa').value
+    const res = document.getElementById('res')
+    const menucliente = document.getElementById('menucliente')
+    menucliente.classList.toggle('ativar')
+    res.innerHTML = `Número da mesa: ${numbermesa}<br>Nome do cliente: ${namemesa} <br>`
+    var btncardapio = document.createElement('button')
+    btncardapio.appendChild(document.createTextNode('Cardapio'))
+    res.appendChild(btncardapio)
+    btncardapio.addEventListener('click' , cardapiolist)
+    function cardapiolist(){
+        var cardapio = document.getElementById('cardapio')
+        cardapio.classList.toggle('ativar')
+    }
+
+}
 
 
+
+
+
+
+
+
+/*
 const mesaInfo = document.getElementById("mesaInfo")
 
 //adiconar mesa
@@ -98,6 +147,6 @@ function addListAfterClick(){
         inputCliente.value = ''
     }
 }
-
+*/
 
 

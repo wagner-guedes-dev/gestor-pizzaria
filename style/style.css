@@ -1,9 +1,75 @@
 * {
-    background-color: rgb(192, 192, 192);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: 'Courier New', Courier, monospace;
+    
+      }
+header {
+    background-color: rgb(255, 183, 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
-#mesaInfo{
+main{
+    max-width: 900px;
+    margin: 0 auto;
+}
+aside{
+    margin: 20px;
+}
+.mesa{
+    width: 300px;
+    height: 320px;
+    border: 1px solid rgba(78, 78, 78, 0.773);
+    text-align: center;
+    border-radius: 10%;
+    box-shadow: 5px 5px grey;
+}
+.mesa .addmesa{
+    width: 80px;
+    height: 80px;
+    font-size: 50px;
+    border: 1px dashed #959595;
+    border-radius: 100%;
+    color: #959595;
+    box-shadow: 5px 5px grey;
+    margin-top: 110px;
+    font-weight: bold
+}
+.mesa .addmesa:hover{
+    border: 1px dashed #12d41fc7;
+    color: #12d41fc7;
+    box-shadow: 5px 5px #12d41fc7;
+    transition: 0.2s;
+}
+#menucliente{
+    margin-top: 120px;
     display: none;
+}
+#menucliente input{
+    margin: 5px;
+    width: 90%;
+    text-align: center;
+}
+#res{
+    margin-top: 20px;
+}
+.ativar{
+    display:block !important;
 }
 .delete{
+    display: none !important;
+}
+#cardapio{
     display: none;
 }
+ul li {
+    list-style-type: none;
+}
+p{
+    font-size: 12px;
+}
+
+
