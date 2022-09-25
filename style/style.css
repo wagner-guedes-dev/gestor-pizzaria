@@ -1,11 +1,12 @@
-* {
+ * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     outline: 0;
     font-family: 'Courier New', Courier, monospace;
     
-      }
+}
+
 header {
     background-color: rgb(255, 183, 0);
     display: flex;
@@ -14,20 +15,22 @@ header {
 }
 main{
     max-width: 900px;
-    margin: 0 auto;
+    margin: 20px auto;
+   display: flex;
 }
-aside{
-    margin: 20px;
-}
+
 .mesa{
-    width: 300px;
+    width: 300px ;
     height: 320px;
+    padding: 15px;
     border: 1px solid rgba(78, 78, 78, 0.773);
     text-align: center;
     border-radius: 10%;
     box-shadow: 5px 5px grey;
+    margin: 10px;
+    
 }
-.mesa .addmesa{
+.mesa #addmesa{
     width: 80px;
     height: 80px;
     font-size: 50px;
@@ -38,7 +41,7 @@ aside{
     margin-top: 110px;
     font-weight: bold
 }
-.mesa .addmesa:hover{
+.mesa #addmesa:hover{
     border: 1px dashed #12d41fc7;
     color: #12d41fc7;
     box-shadow: 5px 5px #12d41fc7;
@@ -62,14 +65,37 @@ aside{
 .delete{
     display: none !important;
 }
-#cardapio{
-    display: none;
-}
+
 ul li {
     list-style-type: none;
 }
 p{
     font-size: 12px;
+}
+
+
+
+.btnfechar{
+    margin-left: 90%;
+    background-color: red;
+    width: 30px;
+    height:30px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 100%;
+    text-align: center;
+}
+.cardapio{
+    width: 500px;
+    height: 500px;
+    padding:20px;
+    border-radius: 5%;
+    text-align:center;
+    background-color: #959595e7;
+    color: white;
+    position: absolute;
+    left: 30%;
+    
 }
 
 

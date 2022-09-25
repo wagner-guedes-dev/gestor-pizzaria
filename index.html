@@ -19,81 +19,88 @@
             <h3>0$</h3>
         </nav>
     </header>
-    <main>
-        <aside>
-            <div class="mesa">
-                <div id="res">
-
-                </div>
-                <button class="addmesa" id="addpedido">
+    <main id="main">
+        <div class="mesa">
+                
+            <button  id="addmesa" >
                     +
-                </button>
-                <div id="menucliente">
-                    <input type="number" name="" id="numbermesa" placeholder="Digite o número da mesa:">
-                    <input type="text" name="" id="namemesa" placeholder="Digite o nome do cliente:">
-                    <div>
-                        <button id="buttonadicionarmesa">
-                            Adicionar Mesa
-                        </button>
-                        <button id="cancelar">
-                            cancelar
-                        </button>
-                    </div>
-                    
+            </button>
+        </div>   
+<!--
+        <div id="modal">
+            <ul>
+                <button class="btnfechar" id="fecharcardapio">X</button>
+                <br>
+                <div>
+                    <h1>Cardapio</h1>
                 </div>
-                <ul id="cardapio">
-                    <br>
-                        <li>
-                            <p>
-                                Muçarela.................23$
-                                <button>
-                                    +
-                                </button>
-                            </p>
-                        </li>
-                    <br>
-                        <li>
-                            <p>
-                                Calabresa................25$
-                                <button>
-                                    +
-                                </button>
-                            </p>
-                        </li>
-                    <br>
-                        <li>
-                            <p>
-                                Portuguesa...............28$
-                                <button>
-                                    +
-                                </button>
-                            </p>
-                        </li>
-                    <br>
-                        <li>
-                            <p>
-                                Frango...................30$
-                                <button>
-                                    +
-                                </button>
-                            </p>
-                        
-                        </li>
-                    <br>
-                        <li>
-                            <p>
-                                Frango com catupiry......35$
-                                <button>
-                                    +
-                                </button>
-                            </p>
-                        </li>
-                </ul>
-            </div>
-        </aside>
-        
+                
+                <br>
+                    <li>
+                        <p>
+                            Muçarela.................23$
+                            <button onclick="addmucarela()">
+                                +
+                            </button>
+                            <button clas="removemucarela">
+                                -
+                            </button>
+                        </p>
+                    </li>
+                <br>
+                    <li>
+                        <p>
+                            Calabresa................25$
+                            <button class="addcalabresa">
+                                +
+                            </button>
+                            <button class="removecalabresa">
+                                -
+                            </button>
+                        </p>
+                    </li>
+                <br>
+                    <li>
+                        <p>
+                            Portuguesa...............28$
+                            <button class="addportuguesa">
+                                +
+                            </button>
+                            <button class="removeportuguesa">
+                                -
+                            </button>
+                        </p>
+                    </li>
+                <br>
+                    <li>
+                        <p>
+                            Frango...................30$
+                            <button class="addfrango">
+                                +
+                            </button>
+                            <button class="removefrango">
+                                -
+                            </button>
+                        </p>
+                    
+                    </li>
+                <br>
+                    <li>
+                        <p>
+                            Frango com catupiry......35$
+                            <button class="addfrangocatupiry">
+                                +
+                            </button>
+                            <button class="removefrangocatupiry">
+                                -
+                            </button>
+                        </p>
+                    </li>
+            </ul>
             
-        
+        </div>
+             -->    
+
     </main>
     <script src="javascript/script.js"></script>
 </body>
