@@ -35,7 +35,7 @@ main{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     border: 3px solid black;
     transition: 0.3s;
-    color: white;
+    color: black;
 }
 #addmesa:hover{
     letter-spacing: 1px;
