@@ -333,7 +333,7 @@ function functionaddpedido(){
             div.classList.add('mesaheight')
             var p1 = document.createElement('p')
             var p2 = document.createElement('p')
-            p1.appendChild(document.createTextNode(inputnumber.value))
+            p1.appendChild(document.createTextNode('Mesa n°: ' + inputnumber.value))
             p2.appendChild(document.createTextNode(inputname.value))
             div.appendChild(p1)
             div.appendChild(p2)
@@ -346,6 +346,7 @@ function functionaddpedido(){
 
             var abrircardapio = document.createElement('button')
             abrircardapio.appendChild(document.createTextNode('Abrir Cardapio'))
+            abrircardapio.classList.add('abrircardapio')
             div.appendChild(abrircardapio)
             abrircardapio.addEventListener('click', abrircardapiofunc)
 

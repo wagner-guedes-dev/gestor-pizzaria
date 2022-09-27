@@ -29,7 +29,7 @@ main{
     border-radius: 20px;
     position: fixed;
     top: 65px;
-    background-color: rgb(255, 183, 0);
+    background-color: #ffb700;
     font-size: 18px;
     letter-spacing: 0.1px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -76,6 +76,7 @@ main{
     font-weight: bold;
     font-size: 15px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
 }
 .inputstyle{
     width: 97%;
@@ -88,10 +89,15 @@ main{
 .titulodamesa{
     text-align: center;
     font-weight: bold;
-    font-size: 18px;
-    text-transform:uppercase ;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-
+    font-size: 25px;
+    font-family:'Times New Roman', Times, serif;
+    color: #ffb700;
+    letter-spacing: 0.5px;
+    -webkit-text-stroke-width: 0.5px; 
+    -webkit-text-stroke-color: #000;
+}
+.titulodamesa::first-letter{
+    text-transform:uppercase;
 }
 .btnaddinfo{
     border: 0;
@@ -103,7 +109,9 @@ main{
     background-repeat: no-repeat;
     background-size: contain;
 }
+.abrircardapio{
 
+}
 #menucliente{
     margin-top: 120px;
     display: none;
