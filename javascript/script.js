@@ -281,12 +281,20 @@ var menuCardapio = {
 function functionaddpedido(){
     var main = document.getElementById('main')//onde os elementos criados serao colocados
     var div = document.createElement('div')//criaçap de div
+    var divheader = document.createElement('div')
+    div.appendChild(divheader)
+    divheader.classList.add('divheader')
     //div.textContent = 'mesa' //text dentro da mesa
     div.classList.add('mesa')//add classe mesa para style
     main.appendChild(div)//div adicionada ao espaço main
+    var btntrocarmesa = document.createElement('button')
+    divheader.appendChild(btntrocarmesa)
+    btntrocarmesa.classList.add('btntrocarmesa')
+    //btntrocarmesa.addEventListener('click', trocarmesa)
+    //function trocarmesa(){}
     var btnfechar = document.createElement('button')//criaçao do button fechar
     btnfechar.appendChild(document.createTextNode('X'))//text no botton fechar
-    div.appendChild(btnfechar)//adiconando o button na div
+    divheader.appendChild(btnfechar)//adiconando o button na div
     btnfechar.classList.add('btnfechar')//adicionando style ao button
     btnfechar.addEventListener('click', fechar)//function ao click no btn fechar
     function fechar(){
@@ -296,19 +304,22 @@ function functionaddpedido(){
     let inputnumber = document.createElement('input')
     inputnumber.type = 'number'
     inputnumber.id = 'inputnumber'
-    inputnumber.className = 'teststyle'//para style
+    inputnumber.placeholder = 'Digite o número da mesa:'
+    inputnumber.className = 'inputstyle'//para style
     div.appendChild(inputnumber)
 
     let inputname = document.createElement('input')
     inputname.type = 'text'
     inputname.id = 'inputname'
-    inputname.className = 'teststyle' //para style
+    inputname.placeholder = 'Digite o nome:'
+    inputname.className = 'inputstyle' //para style
     div.appendChild(inputname)
 
     //botao adicionar informaçoes
     var btnaddinfo = document.createElement('button')
-    btnaddinfo.appendChild(document.createTextNode('Adicionar informações'))
     div.appendChild(btnaddinfo)
+    btnaddinfo.classList.add('btnaddinfo')
+    
     btnaddinfo.addEventListener('click', addinfo)
     function addinfo(){
         
@@ -319,14 +330,15 @@ function functionaddpedido(){
         }else if(inputname.value == ''){
             alert('por favor coloque um nome da mesa')
         }else{
+            div.classList.add('mesaheight')
             var p1 = document.createElement('p')
             var p2 = document.createElement('p')
             p1.appendChild(document.createTextNode(inputnumber.value))
             p2.appendChild(document.createTextNode(inputname.value))
             div.appendChild(p1)
             div.appendChild(p2)
-
-            
+            p1.classList.add('titulodamesa')
+            p2.classList.add('titulodamesa')
 
             inputnumber.classList.add('delete')
             inputname.classList.add('delete')

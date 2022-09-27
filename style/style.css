@@ -12,40 +12,97 @@ header {
     align-items: center;
     justify-content: space-around;
 }
-main{
+#container{
     max-width: 900px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+main{
     margin: 20px auto;
-   display: flex;
-   
+    display: flex;
+    flex-wrap: wrap;
 }
 
+#addmesa{
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    position: fixed;
+    top: 65px;
+    background-color: rgb(255, 183, 0);
+    font-size: 18px;
+    letter-spacing: 0.1px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border: 3px solid black;
+    transition: 0.3s;
+}
+#addmesa:hover{
+    letter-spacing: 1px;
+    border: 2px solid black;
+    background-color: rgb(41, 226, 9);
+}
 .mesa{
-    width: 300px ;
-    height: 320px;
-    padding: 15px;
-    border: 1px solid rgba(78, 78, 78, 0.773);
-    text-align: center;
+    width: 250px;
+    height: 130px;
+    background-color: rgb(240, 241, 241);
+    border: 3px solid rgba(0, 0, 0, 0.773);
     border-radius: 10%;
-    box-shadow: 5px 5px grey;
     margin: 10px;
 }
-.mesa #addmesa{
-    width: 80px;
-    height: 80px;
-    font-size: 50px;
-    border: 1px dashed #959595;
+.mesaheight{
+    height: 250px;
+}
+.divheader{
+    display:flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+.btntrocarmesa ,
+.btnfechar{
+    width: 30px;
+    height: 30px;
+    text-align:center;
     border-radius: 100%;
-    color: #959595;
-    box-shadow: 5px 5px grey;
-    margin-top: 110px;
-    font-weight: bold
 }
-.mesa #addmesa:hover{
-    border: 1px dashed #12d41fc7;
-    color: #12d41fc7;
-    box-shadow: 5px 5px #12d41fc7;
-    transition: 0.2s;
+.btntrocarmesa{
+    background-image: url(../imagens/icone-trocar-mesa.png);
+    background-repeat: no-repeat;
+    background-size:22px;
+    background-position:2px 2.2px;
 }
+.btnfechar{
+    background-color: rgb(245, 77, 77);
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.inputstyle{
+    width: 97%;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+.titulodamesa{
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform:uppercase ;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.btnaddinfo{
+    border: 0;
+    margin-left: 210px;
+    width: 30px;
+    height:30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-image: url(../imagens/icone-certo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 #menucliente{
     margin-top: 120px;
     display: none;
@@ -72,28 +129,20 @@ p{
     font-size: 12px;
 }
 
-
-
-.btnfechar{
-    margin-left: 90%;
-    background-color: red;
-    width: 30px;
-    height:30px;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 100%;
-    text-align: center;
-}
 .cardapio{
-    width: 500px;
-    height: 500px;
     padding:20px;
-    border-radius: 5%;
+    border-radius: 50px;
+    border: 5px solid black;
     text-align:center;
-    background-color: #959595e7;
+    background-color: #000000d1;
     color: white;
     position: absolute;
-    left: 30%;
+    left:50%;
+	top:50%;
+	margin-left:-250px;
+	margin-top:-170px;
+    
+    
 }
 .scroll-pedidos{
     overflow-y:scroll;
