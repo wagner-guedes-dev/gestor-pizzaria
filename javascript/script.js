@@ -272,11 +272,13 @@ function addListAfterClick(){
 
 const adicionarpedido = document.getElementById("addmesa") //button add mesa no html
 var menuCardapio = {
-    mucarela:23,
+    mussarela:23,
     calabresa:25,
     portuguesa:28
 }
-
+    var caixares = document.getElementById('caixa')
+    var caixa = 0
+    
 
 function functionaddpedido(){
     var main = document.getElementById('main')//onde os elementos criados serao colocados
@@ -345,12 +347,20 @@ function functionaddpedido(){
             btnaddinfo.classList.add('delete')
 
             var abrircardapio = document.createElement('button')
-            abrircardapio.appendChild(document.createTextNode('Abrir Cardapio'))
+            abrircardapio.appendChild(document.createTextNode('Abrir Menu:'))
             abrircardapio.classList.add('abrircardapio')
             div.appendChild(abrircardapio)
             abrircardapio.addEventListener('click', abrircardapiofunc)
 
+            var divres = document.createElement('div')
+            divres.classList.add('valor-do-pedido')
+            var clientevalor = 0
             
+            div.appendChild(divres)
+            divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
+
+            var divpedidos = document.createElement('div')
+            div.appendChild(divpedidos)
 
 
             function abrircardapiofunc(){
@@ -377,37 +387,39 @@ function functionaddpedido(){
                 li3.appendChild(document.createTextNode('Pizza Calabresa.................25,00$'))
                 li4.appendChild(document.createTextNode('Pizza Portuguesa................28,00$'))
 
-                //add pizza mucarela
-                var btnaddmucarela = document.createElement('button')
-                btnaddmucarela.appendChild(document.createTextNode('+'))
-                li2.appendChild(btnaddmucarela)
+                //add pizza mussarela
+                var btnaddmussarela = document.createElement('button')
+                btnaddmussarela.appendChild(document.createTextNode('+'))
+                li2.appendChild(btnaddmussarela)
                 
-                btnaddmucarela.addEventListener('click', btnaddmucarelafunc)
-                function btnaddmucarelafunc(){
+                
+
+                btnaddmussarela.addEventListener('click', btnaddmussarelafunc)
+                function btnaddmussarelafunc(){
                     
                     //button adicionar o pedido
-                    clientevalor += menuCardapio.mucarela
+                    clientevalor += menuCardapio.mussarela
                     clientevalor =  parseInt(clientevalor);
-                    divres.innerHTML = `Valor do pedido: ${clientevalor}`
+                    divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
 
                     console.log(clientevalor)
                     var p3 = document.createElement('p')
-                    
-                    p3.appendChild(document.createTextNode(`Pizza Mucarela .....${menuCardapio.mucarela.toFixed(2)}$`))
-                    div.classList.add('scroll-pedidos')
-                    div.appendChild(p3)
+                    p3.classList.add('p3')
+                    p3.appendChild(document.createTextNode(`Pizza Mussarela .....${menuCardapio.mussarela.toFixed(2)}$`))
+                    divpedidos.appendChild(p3)
                     
                     //button remover o pedido
-                    var btnremovermucarela = document.createElement('button')
-                    btnremovermucarela.appendChild(document.createTextNode('X'))
-                    p3.appendChild(btnremovermucarela)
+                    var btnremovermussarela = document.createElement('button')
+                    btnremovermussarela.appendChild(document.createTextNode('X'))
+                    btnremovermussarela.classList.add('btn-remover-pedido')
+                    p3.appendChild(btnremovermussarela)
 
-                    btnremovermucarela.addEventListener('click' , removemucarela)
-                    function removemucarela(){
-                        clientevalor -= menuCardapio.mucarela
+                    btnremovermussarela.addEventListener('click' , removemussarela)
+                    function removemussarela(){
+                        clientevalor -= menuCardapio.mussarela
                         console.log(clientevalor)
                         p3.style.display = 'none'
-                        divres.innerHTML = `Valor do pedido: ${clientevalor}`
+                        divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
                     }
                 }
 
@@ -422,26 +434,26 @@ function functionaddpedido(){
                     //button adicionar o pedido
                     clientevalor += menuCardapio.calabresa
                     clientevalor =  parseInt(clientevalor);
-                    divres.innerHTML = `Valor do pedido: ${clientevalor}`
+                    divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
 
                     console.log(clientevalor)
                     var p3 = document.createElement('p')
-                    
+                    p3.classList.add('p3')
                     p3.appendChild(document.createTextNode(`Pizza Calabresa .....${menuCardapio.calabresa.toFixed(2)}$`))
-                    div.classList.add('scroll-pedidos')
-                    div.appendChild(p3)
+                    divpedidos.appendChild(p3)
                     
                     //button remover o pedido
                     var btnremovercalabresa = document.createElement('button')
                     btnremovercalabresa.appendChild(document.createTextNode('X'))
+                    btnremovercalabresa.classList.add('btn-remover-pedido')
                     p3.appendChild(btnremovercalabresa)
 
-                    btnremovercalabresa.addEventListener('click' , removemucarela)
-                    function removemucarela(){
+                    btnremovercalabresa.addEventListener('click' , removemussarela)
+                    function removemussarela(){
                         clientevalor -= menuCardapio.calabresa
                         console.log(clientevalor)
                         p3.style.display = 'none'
-                        divres.innerHTML = `Valor do pedido: ${clientevalor}`
+                        divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
                     }
                 }
                 //add pizza portuguesa
@@ -455,26 +467,26 @@ function functionaddpedido(){
                     //button adicionar o pedido
                     clientevalor += menuCardapio.portuguesa
                     clientevalor =  parseInt(clientevalor);
-                    divres.innerHTML = `Valor do pedido: ${clientevalor}`
+                    divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
 
                     console.log(clientevalor)
                     var p3 = document.createElement('p')
-                    
-                    p3.appendChild(document.createTextNode(`Pizza Portuguesa .....${menuCardapio.portuguesa.toFixed(2)}$`))
-                    div.classList.add('scroll-pedidos')
-                    div.appendChild(p3)
+                    p3.classList.add('p3')
+                    p3.appendChild(document.createTextNode(`Pizza Portuguesa ....${menuCardapio.portuguesa.toFixed(2)}$`))
+                    divpedidos.appendChild(p3)
                     
                     //button remover o pedido
                     var btnremoveportuguesa = document.createElement('button')
                     btnremoveportuguesa.appendChild(document.createTextNode('X'))
+                    btnremoveportuguesa.classList.add('btn-remover-pedido')
                     p3.appendChild(btnremoveportuguesa)
 
-                    btnremoveportuguesa.addEventListener('click' , removemucarela)
-                    function removemucarela(){
+                    btnremoveportuguesa.addEventListener('click' , removemussarela)
+                    function removemussarela(){
                         clientevalor -= menuCardapio.portuguesa
                         console.log(clientevalor)
                         p3.style.display = 'none'
-                        divres.innerHTML = `Valor do pedido: ${clientevalor}`
+                        divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
                     }
                 }
 
@@ -496,27 +508,27 @@ function functionaddpedido(){
                 
             }
             
-            var divres = document.createElement('div')
-            var clientevalor = 0
-            
-            div.appendChild(divres)
-            divres.innerHTML = `Valor do pedido: ${clientevalor}`
             
             
+            var divpagar = document.createElement('div')
+            var btnpagar = document.createElement('button')
+            div.appendChild(divpagar)
+            divpagar.appendChild(btnpagar)
+            btnpagar.classList.add('pagar')
             
-            
-            
-            
-            
-            
+            btnpagar.addEventListener('click' , pagar)
+            function pagar(){
+                
+                caixa += clientevalor 
+                caixares.innerHTML = `${caixa.toFixed(2)}$`
+                div.classList.add('delete')
+            }
         }
         
     }
 
 
 }
-function addmucarela(){
-    console.log('mussarela adicionada')
-}
+
 
 adicionarpedido.addEventListener('click', functionaddpedido)
