@@ -1,5 +1,5 @@
 
-
+alert('Projeto contém bugs e está em desevolvimento')
 const adicionarpedido = document.getElementById("addmesa") //button add mesa no html
 var menuCardapio = {
     mussarela:23,
