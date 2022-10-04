@@ -67,12 +67,13 @@ button{
 }
 .mesa{
     width: 250px;
-    height: 130px;
+    height: auto;
     background-color: #f0f1f1;
     border: 3px solid rgba(0, 0, 0, 0.773);
     border-radius: 10%;
     margin-right: 10px;
     margin-bottom: 10px;
+    overflow-x: hidden;
 }
 /*style scroll*/
 .mesa::-webkit-scrollbar {
@@ -93,13 +94,15 @@ button{
 }
 
 .mesaheight{
-    height: 300px;
+    height: auto;
+    max-height: 300px;
     overflow-y:auto;
     padding-bottom: 10px;
 }
 .divheader{
     display:flex;
     justify-content: space-between;
+    flex-direction: row-reverse;
     margin: 5px;
 }
 .btntrocarmesa ,
@@ -122,6 +125,10 @@ button{
     font-size: 15px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: black;
+}
+.btnfecharlocal{
+    margin-left: 200px;
+    margin-bottom: 2px;
 }
 .inputstyle{
     width: 97%;
@@ -153,6 +160,8 @@ button{
     background-image: url(../imagens/icone-certo.png);
     background-repeat: no-repeat;
     background-size: contain;
+    background-color: transparent;
+    transition: 0.2s;
 }
 .abrircardapio{
     display: block;
@@ -253,6 +262,9 @@ ul li {
     border-radius: 50px;
     height: 80%;
     width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: 5px solid black;
     text-align:center;
     background-color: #000000d1;
@@ -275,3 +287,114 @@ ul li {
     margin-left: 368px;
 
 }
+.btnfechatroca{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    text-align:center;
+    margin-right: 4px;
+    float: right;
+    font-weight: bold;
+    background-color: rgba(255, 0, 0, 0.626);
+}
+#section {
+    padding:20px;
+    border-radius: 50px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    border: 5px solid rgb(214, 214, 214);
+    text-align:center;
+    background-color: #ffb700ee;
+    color: white;
+    position: fixed;
+    display: none;
+}
+#section input{
+    background-color: #fecf58;
+    color: #000;
+    height: 25px;
+    border: 3px solid #fff;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.btntroca{
+    margin-top:10px;
+    margin-left: 280px;
+}
+.trocademesa-naoinformado{
+    background-color: #fa6565cd !important;
+    animation: vibrate-3 0.5s linear both;
+    border: 3px solid #000 !important;
+}
+.btntroca-naoinformado{
+    background-image: url(../imagens/icone-certo-vermelho.png)!important;
+    animation: vibrate-3 0.5s linear both;
+}
+.aviso{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid rgb(0, 0, 0);
+    text-align:center;
+    background-color: #ffb700ee;
+    padding: 20px;
+    font-weight: bold;
+    box-shadow: 14px 9px 13px 1px rgba(0,0,0,0.75);
+    display: none;
+    border-radius: 10px;
+}
+.btnfecharaviso{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border: 3px solid rgba(0, 0, 0, 0.611);
+    margin-top: 1%;
+    float: right;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: rgba(255, 0, 0, 0.564);
+}
+
+/*Animacoes ********/
+@keyframes vibrate-3 {
+    0% {
+      transform: translate(0);
+    }
+    10% {
+      transform: translate(-2px, -2px);
+    }
+    20% {
+      transform: translate(2px, -2px);
+    }
+    30% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(2px, 2px);
+    }
+    50% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, -2px);
+    }
+    70% {
+      transform: translate(-2px, 2px);
+    }
+    80% {
+      transform: translate(-2px, -2px);
+    }
+    90% {
+      transform: translate(2px, -2px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  

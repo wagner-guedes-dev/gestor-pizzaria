@@ -15,7 +15,7 @@
             <div id="logo">
                 <img src="imagens/pizza-logo.png" alt="logo-pizza" width="80px" height="70px">
                 <button  id="addmesa" >
-                    Adicionar mesa:
+                    Adicionar mesa
                 </button>
             </div>
             <nav>
@@ -37,6 +37,43 @@
 
 
         </main>
+
+        <section id="section" class="section-style">
+
+        </section>
+       <div id="avisos">
+            <div class='aviso' id="addMesaCliente">
+                <button class="btnfecharaviso" onclick="fecharAnuncio()">X</button>
+                <p>Por favor digite o número da mesa e o nome do cliente.</p>
+            </div>
+        
+            <div class='aviso' id="addNumero">
+                <button class="btnfecharaviso" onclick="fecharAnuncio()">X</button>
+                <p>Por favor digite o número da mesa.</p>
+            </div>
+        
+            <div class='aviso' id="addNome" >
+                <button class="btnfecharaviso" onclick="fecharAnuncio()">X</button>
+                <p>Por favor digite o nome do cliente.</p>
+            </div>
+        
+            <div class='aviso' id="mesaExiste">
+                <button class="btnfecharaviso" onclick="fecharAnuncio()">X</button>
+                <p>Ja existe uma mesa com esse número.</p>
+            </div>
+        
+            <div class='aviso' id="fecheAsAbasAbertas">
+                <button class="btnfecharaviso" onclick="fecharAnuncio()">X</button>
+                <p>Feche as abas abertas primeiro</p>
+            </div>
+        
+            <div class='aviso' id="avisoAddPedido">
+                <button class="btnfecharaviso" onclick="fecharAnuncio()">X</button>
+                <p>Adicione o pedido antes de pagar a conta.</p>
+            </div>
+
+       </div>
+        
     </div>
     <script src="javascript/script.js"></script>
 </body>

@@ -1,9 +1,9 @@
 
-// alert('Projeto contém bugs e está em desevolvimento')
-var podefechar = true 
-console.log(podefechar)
 
-const adicionarpedido = document.getElementById("addmesa") //button add mesa no html
+
+var numeroDasMesas = [] //armazenar numero das mesas para não ter nenhuma mesa repetida
+
+
 var menuCardapio = {
     mussarela:23,
     calabresa:25,
@@ -17,11 +17,21 @@ var bebidas = {
     fantalaranja2l: 12,
     guarana2l: 11.5
 }
-    var caixares = document.getElementById('caixa')
-    var caixa = 0
-    
+
+var caixares = document.getElementById('caixa')
+var caixa = 0
+
+
+var podefechar = true //variavel usada para bloquear os botoes quando o cardapio estiver aberto
+const adicionarpedido = document.getElementById("addmesa") //button add mesa no html    
+adicionarpedido.addEventListener('click', functionaddpedido)
+
+var section = document.getElementById('section')
 
 function functionaddpedido(){
+    if(podefechar){
+        
+    
     var main = document.getElementById('main')//onde os elementos criados serao colocados
     var div = document.createElement('div')//criaçap de div
     var divheader = document.createElement('div')
@@ -30,25 +40,27 @@ function functionaddpedido(){
     //div.textContent = 'mesa' //text dentro da mesa
     div.classList.add('mesa')//add classe mesa para style
     main.appendChild(div)//div adicionada ao espaço main
-    var btntrocarmesa = document.createElement('button')
-    divheader.appendChild(btntrocarmesa)
-    btntrocarmesa.classList.add('btntrocarmesa')
-    //btntrocarmesa.addEventListener('click', trocarmesa)
-    //function trocarmesa(){}
+    
     var btnfechar = document.createElement('button')//criaçao do button fechar
     btnfechar.appendChild(document.createTextNode('X'))//text no botton fechar
     divheader.appendChild(btnfechar)//adiconando o button na div
     btnfechar.classList.add('btnfechar')//adicionando style ao button
+    btnfechar.classList.add('btnfecharlocal')
     btnfechar.addEventListener('click', fechar)//function ao click no btn fechar
     function fechar(){
         
         if(podefechar){
-            div.classList.add('delete')//class para display none para remover a mesa
+            numeroDasMesas.splice(numeroDasMesas.indexOf(inputnumber.value), 1)//removendo mesa do array
+            console.log(numeroDasMesas)
+            
+            div.parentNode.removeChild(div);
+            
         }
     }
     
     //criaçao dos inputs
     let inputnumber = document.createElement('input')
+    
     inputnumber.type = 'number'
     inputnumber.id = 'inputnumber'
     inputnumber.placeholder = 'Digite o número da mesa:'
@@ -69,14 +81,109 @@ function functionaddpedido(){
     
     btnaddinfo.addEventListener('click', addinfo)
     function addinfo(){
-        
+        if(podefechar){
+
         if(inputnumber.value == '' && inputname. value == ''){
-            alert('por favor coloque o numero e nome na mesa')
+            var addMesaCliente = document.getElementById('addMesaCliente')
+            addMesaCliente.classList.add('ativar')
+            podefechar = false
         }else if(inputnumber.value == ''){
-            alert('por favor coloque um numero na mesa')
+            var addNumero = document.getElementById('addNumero')
+            addNumero.classList.add('ativar')
+            podefechar = false
         }else if(inputname.value == ''){
-            alert('por favor coloque um nome da mesa')
+            addNome
+            var addNome = document.getElementById('addNome')
+            addNome.classList.add('ativar')
+            podefechar = false
         }else{
+            
+            //verificar se há mesas com números iguais
+            if(numeroDasMesas.includes(inputnumber.value)){
+                inputnumber.value = ''
+                var mesaExiste = document.getElementById('mesaExiste')
+                mesaExiste.classList.add('ativar')
+                podefechar = false
+            }else{
+                numeroDasMesas.push(inputnumber.value)//adicionando mesa ao array
+                console.log(numeroDasMesas)
+
+                btnfechar.classList.remove('btnfecharlocal')
+                var btntrocarmesa = document.createElement('button')
+                divheader.appendChild(btntrocarmesa)
+                btntrocarmesa.classList.add('btntrocarmesa')
+            
+                btntrocarmesa.addEventListener('click', trocarmesa)
+                function trocarmesa(){
+                    if(podefechar){
+                    section.classList.add('ativar')
+                    
+                    var fechartroca = document.createElement('button')
+                    section.appendChild(fechartroca)
+                    fechartroca.appendChild(document.createTextNode('X'))
+                    fechartroca.classList.add('btnfechatroca')
+                    fechartroca.addEventListener('click', btnfechartroca)
+                    function btnfechartroca(){
+                        trocar.parentNode.removeChild(trocar);
+                        btntrocar.parentNode.removeChild(btntrocar);
+                        fechartroca.parentNode.removeChild(fechartroca);
+                        podefechar = true
+                        podefechar = true
+                        section.classList.remove('ativar')
+                    }
+                    var trocar = document.createElement('input')
+                    trocar.type = 'number'
+                    trocar.placeholder = 'Digite o número da mesa:'
+                    trocar.className = 'inputstyle'//para style
+                    trocar.style.marginTop = '10px'
+                    section.appendChild(trocar)
+                    
+                    var btntrocar = document.createElement('button')
+                    section.appendChild(btntrocar)
+                    btntrocar.classList.add('btnaddinfo')
+                    btntrocar.classList.add('btntroca')
+                    
+                    btntrocar.addEventListener('click', btntrocarfunc)
+                    function btntrocarfunc(){
+                        
+
+                        if(numeroDasMesas.includes(trocar.value)){
+                            trocar.value = ''
+                            var mesaExiste = document.getElementById('mesaExiste')
+                            mesaExiste.classList.add('ativar')
+                            podefechar = false
+                        }else if(trocar.value == ''){
+                            trocar.classList.toggle('trocademesa-naoinformado')
+                            btntrocar.classList.toggle('btntroca-naoinformado')
+                            
+                        }
+                        else{
+                            numeroDasMesas.splice(numeroDasMesas.indexOf(inputnumber.value), 1)
+                            numeroDasMesas.push(trocar.value)//adicionando mesa ao array
+                            trocar.parentNode.removeChild(trocar);
+                            btntrocar.parentNode.removeChild(btntrocar);
+                            section.classList.remove('ativar')
+                            fechartroca.parentNode.removeChild(fechartroca)
+
+                            console.log('array no if',numeroDasMesas)
+                            inputnumber.value = trocar.value
+                        
+                            p1.innerHTML = 'Mesa n°: ' + inputnumber.value
+                            podefechar = true
+                            
+                            
+                        }
+                        console.log('inputnumber', inputnumber)
+                        console.log('array',numeroDasMesas)
+                        
+                    }
+                    podefechar = false
+                    
+                    
+                    
+                } }
+
+
             div.classList.add('mesaheight')
             var p1 = document.createElement('p')
             var p2 = document.createElement('p')
@@ -92,7 +199,7 @@ function functionaddpedido(){
             btnaddinfo.classList.add('delete')
 
             var abrircardapio = document.createElement('button')
-            abrircardapio.appendChild(document.createTextNode('Abrir Menu:'))
+            abrircardapio.appendChild(document.createTextNode('Abrir Menu'))
             abrircardapio.classList.add('abrircardapio')
             div.appendChild(abrircardapio)
             abrircardapio.addEventListener('click', abrircardapiofunc)
@@ -110,9 +217,8 @@ function functionaddpedido(){
 
 
             function abrircardapiofunc(){
-                podefechar = false
-            console.log(podefechar)
                 
+                if(podefechar){
 
                 const ul = document.createElement('ul')
                 const li = document.createElement('li')//titulo cardapio
@@ -186,7 +292,7 @@ function functionaddpedido(){
                     clientevalor =  parseFloat(clientevalor);
                     divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
 
-                    console.log(clientevalor.toFixed(2))
+                    
                     var p3 = document.createElement('p')
                     p3.classList.add('p3')
                     p3.appendChild(document.createTextNode(`Pizza Mussarela .....${menuCardapio.mussarela.toFixed(2)}$`))
@@ -201,7 +307,7 @@ function functionaddpedido(){
                     btnremovermussarela.addEventListener('click' , removemussarela)
                     function removemussarela(){
                         clientevalor -= menuCardapio.mussarela
-                        console.log(clientevalor.toFixed(2))
+                        
                         p3.style.display = 'none'
                         divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
                     }
@@ -220,7 +326,7 @@ function functionaddpedido(){
                     clientevalor =  parseFloat(clientevalor);
                     divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
 
-                    console.log(clientevalor.toFixed(2))
+                    
                     var p3 = document.createElement('p')
                     p3.classList.add('p3')
                     p3.appendChild(document.createTextNode(`Pizza Calabresa .....${menuCardapio.calabresa.toFixed(2)}$`))
@@ -235,7 +341,7 @@ function functionaddpedido(){
                     btnremovercalabresa.addEventListener('click' , removecalabresa)
                     function removecalabresa(){
                         clientevalor -= menuCardapio.calabresa
-                        console.log(clientevalor.toFixed(2))
+                        
                         p3.style.display = 'none'
                         divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
                     }
@@ -253,7 +359,7 @@ function functionaddpedido(){
                     clientevalor =  parseFloat(clientevalor);
                     divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
 
-                    console.log(clientevalor.toFixed(2))
+                    
                     var p3 = document.createElement('p')
                     p3.classList.add('p3')
                     p3.appendChild(document.createTextNode(`Pizza Portuguesa ....${menuCardapio.portuguesa.toFixed(2)}$`))
@@ -268,7 +374,7 @@ function functionaddpedido(){
                     btnremoveportuguesa.addEventListener('click' , removeportuguesa)
                     function removeportuguesa(){
                         clientevalor -= menuCardapio.portuguesa
-                        console.log(clientevalor.toFixed(2))
+                        
                         p3.style.display = 'none'
                         divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
                     }
@@ -286,7 +392,7 @@ function functionaddpedido(){
                     clientevalor =  parseFloat(clientevalor);
                     divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
 
-                    console.log(clientevalor.toFixed(2))
+                    
                     var p3 = document.createElement('p')
                     p3.classList.add('p3')
                     p3.appendChild(document.createTextNode(`Pizza Marguerita ....${menuCardapio.marguerita.toFixed(2)}$`))
@@ -302,7 +408,7 @@ function functionaddpedido(){
                     function removemarguerita(){
                         
                         clientevalor -= menuCardapio.marguerita
-                        console.log(clientevalor.toFixed(2))
+                        
                         p3.style.display = 'none'
                         divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
                     }
@@ -320,7 +426,7 @@ function functionaddpedido(){
                     clientevalor =  parseFloat(clientevalor);
                     divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
 
-                    console.log(clientevalor.toFixed(2))
+                    
                     var p3 = document.createElement('p')
                     p3.classList.add('p3')
                     p3.appendChild(document.createTextNode(`Pizza frango ....${menuCardapio.frango.toFixed(2)}$`))
@@ -336,7 +442,7 @@ function functionaddpedido(){
                     function removefrango(){
                         
                         clientevalor -= menuCardapio.frango
-                        console.log(clientevalor.toFixed(2))
+                        
                         p3.style.display = 'none'
                         divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
                     }
@@ -354,7 +460,7 @@ function functionaddpedido(){
                     clientevalor =  parseFloat(clientevalor);
                     divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
 
-                    console.log(clientevalor.toFixed(2))
+                    
                     var p3 = document.createElement('p')
                     p3.classList.add('p3')
                     p3.appendChild(document.createTextNode(`Pizza napolitana ....${menuCardapio.napolitana.toFixed(2)}$`))
@@ -370,7 +476,7 @@ function functionaddpedido(){
                     function removenapolitana(){
                         
                         clientevalor -= menuCardapio.napolitana
-                        console.log(clientevalor.toFixed(2))
+                        
                         p3.style.display = 'none'
                         divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
                     }
@@ -389,7 +495,7 @@ function functionaddpedido(){
                      clientevalor =  parseFloat(clientevalor);
                      divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
  
-                     console.log(clientevalor.toFixed(2))
+                     
                      var p3 = document.createElement('p')
                      p3.classList.add('p3')
                      p3.appendChild(document.createTextNode(`Coca Cola 2Lts ....${bebidas.cocacola2l.toFixed(2)}$`))
@@ -405,7 +511,7 @@ function functionaddpedido(){
                      function removecoca(){
                          
                          clientevalor -= bebidas.cocacola2l
-                         console.log(clientevalor.toFixed(2))
+                         
                          p3.style.display = 'none'
                          divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
                      }
@@ -423,7 +529,7 @@ function functionaddpedido(){
                       clientevalor =  parseFloat(clientevalor);
                       divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
   
-                      console.log(clientevalor.toFixed(2))
+                      
                       var p3 = document.createElement('p')
                       p3.classList.add('p3')
                       p3.appendChild(document.createTextNode(`Fanta Laranja 2Lts ....${bebidas.fantalaranja2l.toFixed(2)}$`))
@@ -439,7 +545,7 @@ function functionaddpedido(){
                       function removefantalaranja(){
                           
                           clientevalor -= bebidas.fantalaranja2l
-                          console.log(clientevalor.toFixed(2))
+                          
                           p3.style.display = 'none'
                           divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
                       }
@@ -457,7 +563,7 @@ function functionaddpedido(){
                       clientevalor =  parseFloat(clientevalor);
                       divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
   
-                      console.log(clientevalor.toFixed(2))
+                      
                       var p3 = document.createElement('p')
                       p3.classList.add('p3')
                       p3.appendChild(document.createTextNode(`Guaraná 2Lts ....${bebidas.guarana2l.toFixed(2)}$`))
@@ -473,14 +579,14 @@ function functionaddpedido(){
                       function removeguarana(){
                           
                           clientevalor -= bebidas.guarana2l
-                          console.log(clientevalor.toFixed(2))
+                          
                           p3.style.display = 'none'
                           divres.innerHTML = `Valor do pedido: ${clientevalor.toFixed(2)}$`
                       }
                   }
-
+                  podefechar = false
+                }
                 
-
                 
                 
             }
@@ -495,19 +601,40 @@ function functionaddpedido(){
             
             btnpagar.addEventListener('click' , pagar)
             function pagar(){
+                if(clientevalor > 0 && podefechar){
+                    caixa += clientevalor 
+                    caixares.innerHTML = `${caixa.toFixed(2)}$`
+                    div.parentNode.removeChild(div);
+                    numeroDasMesas.splice(numeroDasMesas.indexOf(inputnumber.value), 1)
+                }else if(podefechar == false){
+                    var fecheAsAbasAbertas = document.getElementById('fecheAsAbasAbertas')
+                    fecheAsAbasAbertas.classList.add('ativar')
+                    podefechar = false
+                    
+                }else{
+
+                    var avisoAddPedido = document.getElementById('avisoAddPedido')
+                    avisoAddPedido.classList.add('ativar')
+                    podefechar = false
+                }
                 
-                caixa += clientevalor 
-                caixares.innerHTML = `${caixa.toFixed(2)}$`
-                div.classList.add('delete')
             }
         }
         
     }
-
-
 }
 
+}}}
+//remover display dos anuncios e volta o pode fechar pra true para o site funcionar normalmente
+function fecharAnuncio(){
+    avisoAddPedido.classList.remove('ativar')
+    addMesaCliente.classList.remove('ativar')
+    addNumero.classList.remove('ativar')
+    addNome.classList.remove('ativar')
+    mesaExiste.classList.remove('ativar')
+    fecheAsAbasAbertas.classList.remove('ativar')
+    podefechar = true
+}
 
-adicionarpedido.addEventListener('click', functionaddpedido)
 
 
