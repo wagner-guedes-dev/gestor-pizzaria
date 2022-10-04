@@ -103,7 +103,8 @@ button{
     margin: 5px;
 }
 .btntrocarmesa ,
-.btnfechar{
+.btnfechar ,
+.fechar-modal{
     width: 30px;
     height: 30px;
     text-align:center;
@@ -183,6 +184,18 @@ button{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
+ul li button{
+    border: 0;
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgba(4, 249, 28, 0.759);
+    color: black;
+    width: 20px;
+    height: 20px;
+}
 .btn-remover-pedido{
     border-radius: 100%;
     margin-left: 10px;
@@ -238,15 +251,27 @@ ul li {
 .cardapio{
     padding:20px;
     border-radius: 50px;
+    height: 80%;
+    width: 80%;
     border: 5px solid black;
     text-align:center;
     background-color: #000000d1;
     color: white;
-    position: absolute;
-    left:50%;
-	top:50%;
-	margin-left:-250px;
-	margin-top:-170px;
+    position: fixed;
 }
+.title{
+    font-size:30px;
+    margin-top: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 4px;
+}
+.fechar-modal{
+    background-color: rgb(245, 77, 77);
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    text-align: center;
+    margin-left: 368px;
 
-
+}
