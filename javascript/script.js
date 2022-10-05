@@ -606,6 +606,8 @@ function functionaddpedido(){
                     caixares.innerHTML = `${caixa.toFixed(2)}$`
                     div.parentNode.removeChild(div);
                     numeroDasMesas.splice(numeroDasMesas.indexOf(inputnumber.value), 1)
+                    container2.innerHTML += `<p>${inputname.value} cliente da mesa número ${inputnumber.value} Pagou ${clientevalor.toFixed(2)}$ -> ${dia}/${mes+1}/${ano} as ${hora}:${min}h.</p>`
+                    podefechar = false
                 }else if(podefechar == false){
                     var fecheAsAbasAbertas = document.getElementById('fecheAsAbasAbertas')
                     fecheAsAbasAbertas.classList.add('ativar')
@@ -637,4 +639,20 @@ function fecharAnuncio(){
 }
 
 
+var container1 = document.getElementById('container')
+var container2 = document.getElementById('conteinertwo')
 
+function trocarcontainer(){
+    container1.classList.toggle('delete')
+    container2.classList.toggle('ativar')
+}
+
+//container historico
+var agora = new Date()
+var ano = agora.getFullYear()
+var mes = agora.getMonth()
+var dia = agora.getDate()
+
+
+var hora = agora.getHours()
+var min = agora.getMinutes()

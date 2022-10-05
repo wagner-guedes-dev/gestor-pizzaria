@@ -13,12 +13,12 @@
     <header>
         <div id="menu">
             <div id="logo">
-                <img src="imagens/pizza-logo.png" alt="logo-pizza" width="80px" height="70px">
+                <img onclick="trocarcontainer()" src="imagens/pizza-logo.png" alt="logo-pizza" width="80px" height="70px">
                 <button  id="addmesa" >
                     Adicionar mesa
                 </button>
             </div>
-            <nav>
+            <nav onclick="trocarcontainer()">
                 <img src="imagens/caixa-registradora.png" alt="logo-caixa" width="80px" height="80px">
                 <h3 id="caixa">0,00$</h3>
             </nav>
@@ -71,8 +71,15 @@
                 <button class="btnfecharaviso" onclick="fecharAnuncio()">X</button>
                 <p>Adicione o pedido antes de pagar a conta.</p>
             </div>
-
        </div>
+        
+       
+    </div>
+
+    <div id="conteinertwo">
+        <div id="infoCaixa">
+            <h1>Informações da noite:</h1>
+        </div>
         
     </div>
     <script src="javascript/script.js"></script>
