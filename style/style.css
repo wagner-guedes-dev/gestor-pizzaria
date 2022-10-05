@@ -7,6 +7,7 @@
 }
 header{
     background-color: rgb(255, 183, 0);
+    min-width: 521px;
 }
 #menu {
     display: flex;
@@ -24,6 +25,7 @@ header{
     max-width: 900px;
     margin: 0 auto;
     padding-top: 20px;
+    min-width: 521px;
     
 }
 #container{
@@ -270,8 +272,7 @@ nav{
 .cardapio{
     padding:20px;
     border-radius: 50px;
-    height: 80%;
-    width: 80%;
+    width: 420px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -294,8 +295,7 @@ nav{
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: black;
     text-align: center;
-    margin-left: 368px;
-
+    float: right;
 }
 .btnfechatroca{
     width: 20px;
@@ -375,20 +375,21 @@ nav{
     display: none;
     height: 80vh;
     transition: 0.3s;
-    text-align: center;
 }
 #conteinertwo h1{
     color: #ffb700de;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     letter-spacing: 2px;
-    font-size:40px;
+    font-size:30px;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #000;
+    margin-left: 20px;
 }
 #conteinertwo p{
     text-align: left;
-    font-size:20px;
+    font-size:15px;
     font-family: monospace;
+    margin-left: 10px;
     margin-top: 20px;
 }
 p::first-letter {

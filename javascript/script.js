@@ -265,17 +265,17 @@ function functionaddpedido(){
                 li.appendChild(document.createTextNode(`Cardapio`))
                 li.classList.add('title')
                 //pizzas 
-                li1.appendChild(document.createTextNode(`Pizza Mussarela.................23,00$`))
-                li2.appendChild(document.createTextNode('Pizza Calabresa.................25,00$'))
-                li3.appendChild(document.createTextNode('Pizza Portuguesa................28,00$'))
-                li4.appendChild(document.createTextNode('Pizza Marguerita................27,50$'))
-                li5.appendChild(document.createTextNode('Pizza Frango....................30,80$'))
-                li6.appendChild(document.createTextNode('Pizza Napolitana................25,90$'))
+                li1.appendChild(document.createTextNode(`Pizza Mussarela..............23,00$`))
+                li2.appendChild(document.createTextNode('Pizza Calabresa..............25,00$'))
+                li3.appendChild(document.createTextNode('Pizza Portuguesa.............28,00$'))
+                li4.appendChild(document.createTextNode('Pizza Marguerita.............27,50$'))
+                li5.appendChild(document.createTextNode('Pizza Frango.................30,80$'))
+                li6.appendChild(document.createTextNode('Pizza Napolitana.............25,90$'))
                 li7.appendChild(document.createTextNode('Bebidas'))
                 li7.classList.add('title')
-                li8.appendChild(document.createTextNode('Coca Cola 2Lts................12,50$'))
-                li9.appendChild(document.createTextNode('Fanta Laranja 2Lts............12,00$'))
-                li10.appendChild(document.createTextNode('Guaraná 2Lts..................11,50$'))
+                li8.appendChild(document.createTextNode('Coca Cola 2Lts.............12,50$'))
+                li9.appendChild(document.createTextNode('Fanta Laranja 2Lts.........12,00$'))
+                li10.appendChild(document.createTextNode('Guaraná 2Lts...............11,50$'))
 
                 //add pizza mussarela
                 var btnaddmussarela = document.createElement('button')
@@ -606,8 +606,7 @@ function functionaddpedido(){
                     caixares.innerHTML = `${caixa.toFixed(2)}$`
                     div.parentNode.removeChild(div);
                     numeroDasMesas.splice(numeroDasMesas.indexOf(inputnumber.value), 1)
-                    container2.innerHTML += `<p>${inputname.value} cliente da mesa número ${inputnumber.value} Pagou ${clientevalor.toFixed(2)}$ -> ${dia}/${mes+1}/${ano} as ${hora}:${min}h.</p>`
-                    podefechar = false
+                    container2.innerHTML += `<p>${inputname.value} cliente da mesa número ${inputnumber.value} Pagou ${clientevalor.toFixed(2)}$ - as ${hora}h e ${min}min.</p>`
                 }else if(podefechar == false){
                     var fecheAsAbasAbertas = document.getElementById('fecheAsAbasAbertas')
                     fecheAsAbasAbertas.classList.add('ativar')
@@ -649,10 +648,6 @@ function trocarcontainer(){
 
 //container historico
 var agora = new Date()
-var ano = agora.getFullYear()
-var mes = agora.getMonth()
-var dia = agora.getDate()
-
 
 var hora = agora.getHours()
 var min = agora.getMinutes()
